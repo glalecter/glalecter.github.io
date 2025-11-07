@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>PEOPLE MANAGEMENT LTDA — Intermediação de Crédito com Clareza</title>
+  <meta name="description" content="People Management LTDA conecta empresas a bancos, FIDCs e fundos com processos de crédito claros, análise de risco objetiva e acompanhamento pós-liberação. Tudo em linguagem simples, sem jargões e com total transparência de custos." />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#20e37a" />
+  <!--
+    Empresa: PEOPLE MANAGEMENT LTDA
+    Email: glaicielle@peoplemanagement.pro
+    Endereço: Avenida Hebe Camargo, 470
+    Área: Finance & Insurance — Activities Related to Credit Intermediation
+    Observância Apple Developer:
+      - Nenhum campo de telefone no formulário.
+      - Coleta mínima de dados com consentimento explícito.
+      - Acessibilidade: rótulos, foco, navegação por teclado e contraste.
+      - Nada de rastreadores/iframes ou downloads automáticos.
+  -->
+  <style>
+    /* ======== Design de alta legibilidade ======== */
+    :root{
+      --bg:#0b1012;
+      --surface:#12181d;
+      --ink:#f7fbf8;           /* texto principal muito claro */
+      --muted:#c9d5ce;         /* texto secundário */
+      --soft:#a3b2aa;
+      --brand:#20e37a;         /* verde principal */
+      --brand-2:#9dffcf;       /* verde claro */
+      --accent:#e2fff2;
+      --stroke:rgba(255,255,255,.14);
+      --shadow:0 14px 40px rgba(0,0,0,.4);
+      --radius:18px;
+      --radius-lg:26px;
+      --glass:rgba(10,18,15,.55);
+      --glass-strong:rgba(8,14,11,.75);
+      --focus:#ffffff;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f5f7f8; --surface:#ffffff;
+        --ink:#0c1813; --muted:#394a42; --soft:#4d5d56;
+        --stroke:rgba(0,0,0,.12); --glass:rgba(255,255,255,.7); --glass-strong:#ffffffcc;
+      }
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background:
+        linear-gradient(180deg, rgba(32,227,122,.06), transparent 35%),
+        url('') center/cover fixed,
+        var(--bg);
+      color:var(--ink);
+      line-height:1.65;
+      scroll-behavior:smooth;
+      text-rendering:optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{opacity:.92}
+    .container{max-width:1200px; margin-inline:auto; padding:0 20px}
+
+    /* ======== Header ======== */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(140%) blur(12px);
+      background:linear-gradient(180deg, rgba(5,10,8,.85), rgba(5,10,8,.55), transparent);
+      border-bottom:1px solid var(--stroke);
+    }
+    .nav{
+      height:76px; display:flex; align-items:center; justify-content:space-between; gap:18px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px}
+    .logo-dot{width:14px; height:14px; border-radius:50%; background:radial-gradient(circle at 30% 30%, var(--brand-2), var(--brand)); box-shadow:0 0 18px rgba(32,227,122,.9)}
+    .menu{display:flex; gap:6px; align-items:center; flex-wrap:wrap}
+    .menu a{color:var(--ink); padding:10px 14px; border-radius:999px}
+    .menu a:hover, .menu a:focus{background:var(--glass); outline:none}
+    .btn{
+      appearance:none; border:none; cursor:pointer; font-weight:800; color:#06150e; letter-spacing:.15px;
+      background:linear-gradient(135deg, var(--brand), var(--brand-2));
+      padding:12px 18px; border-radius:14px; box-shadow:var(--shadow);
+    }
+    .btn.secondary{background:transparent; color:var(--ink); border:2px solid var(--brand)}
+    .btn:focus-visible{outline:3px solid var(--focus)}
+
+    /* ======== Hero com painel translúcido para leitura ======== */
+    .hero{
+      position:relative; padding:96px 0 36px; overflow:hidden;
+    }
+    .hero-wrap{
+      display:grid; grid-template-columns:1.15fr .85fr; gap:28px; align-items:center;
+    }
+    .hero-panel{
+      background: var(--glass-strong);
+      border:1px solid var(--stroke); border-radius:var(--radius-lg);
+      padding:28px; box-shadow:var(--shadow);
+    }
+    .badge{display:inline-flex; gap:8px; align-items:center; background:rgba(32,227,122,.12); border:1px solid var(--brand); color:var(--accent); padding:6px 10px; border-radius:999px; font-size:12px}
+    h1{font-size:clamp(30px, 4.2vw, 52px); line-height:1.15; margin:14px 0 10px}
+    .lead{color:var(--muted); font-size:clamp(16px, 2.2vw, 19px); max-width:64ch}
+    .hero-cta{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
+    .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:22px}
+    .stat{background:rgba(0,0,0,.35); border:1px solid var(--stroke); border-radius:16px; padding:14px; text-align:center}
+    .stat strong{display:block; font-size:22px}
+    .hero-photo{
+      border-radius:26px; overflow:hidden; border:1px solid var(--stroke); box-shadow:var(--shadow); background:var(--surface)
+    }
+    .hero-photo>div{
+      height:100%; min-height:340px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,0)),
+        url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    }
+
+    /* ======== Seções ======== */
+    section{padding:72px 0}
+    .section-kicker{display:flex; align-items:center; gap:10px; margin-bottom:6px; color:var(--brand)}
+    .section-kicker .line{height:1px; width:40px; background:var(--brand)}
+    h2{margin:10px 0 10px; font-size:clamp(26px, 3.2vw, 36px)}
+    p{margin:0 0 12px}
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
+
+    @media (max-width:1020px){
+      .hero-wrap{grid-template-columns:1fr}
+      .grid-3, .grid-2{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr}
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--stroke); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)
+    }
+    .card h3{margin:8px 0 6px; font-size:20px}
+    .card .small{color:var(--muted); font-size:14px}
+    .pill{display:inline-block; padding:4px 10px; border:1px dashed var(--brand); color:var(--brand); border-radius:999px; font-size:12px}
+
+    /* ======== Processo (timeline) ======== */
+    .timeline{position:relative; padding-left:26px}
+    .timeline::before{content:""; position:absolute; left:10px; top:8px; bottom:8px; width:2px; background:linear-gradient(var(--brand), transparent)}
+    .step{position:relative; margin-bottom:18px; background:var(--surface); border:1px solid var(--stroke); border-radius:16px; padding:16px}
+    .step::before{content:""; position:absolute; left:-6px; top:16px; width:12px; height:12px; border-radius:50%; background:var(--brand); box-shadow:0 0 0 3px rgba(32,227,122,.18)}
+
+    /* CTA frase */
+    .slogan{
+      text-align:center; font-size:24px; letter-spacing:.5px; padding:28px 10px; border:1px dashed var(--stroke); border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(32,227,122,.07), transparent)
+    }
+
+    /* ======== Modais ======== */
+    .modal{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.55)}
+    .modal[open]{display:flex}
+    .dialog{
+      width:min(720px, 92vw); background:var(--surface); border:1px solid var(--stroke); border-radius:22px; padding:20px; box-shadow:var(--shadow)
+    }
+    .dialog header{position:relative; background:transparent; border:none; padding:0; margin:0 0 8px}
+    .close{position:absolute; right:6px; top:6px; border:none; background:transparent; color:var(--ink); font-size:24px; cursor:pointer}
+    .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    .form-grid .full{grid-column:1 / -1}
+    label{display:block; font-weight:700; margin-bottom:6px}
+    input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--stroke);
+  background: #f9faf9;          /* ← светлый фон */
+  color: #111;                  /* ← тёмный текст */
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.08);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #555;                  /* ← мягкий серый текст для placeholder */
+  opacity: 0.9;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--brand);
+  background: #ffffff;          /* ← при фокусе — белый фон */
+  outline: none;
+}
+
+    /* ======== Rodapé ======== */
+    footer{padding:40px 0 72px; border-top:1px solid var(--stroke); background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(32,227,122,.05))}
+    .credits{font-size:13px; color:var(--muted)}
+    .chip{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--stroke); padding:8px 10px; border-radius:999px; margin:4px 8px 0 0}
+    .chip .logo-dot{width:10px; height:10px}
+
+    /* ======== Acessibilidade ======== */
+    :is(a,button,input,select,textarea):focus-visible{outline:2px solid var(--brand); outline-offset:2px; border-radius:12px}
+    @media (prefers-reduced-motion: reduce){ *{scroll-behavior:auto} }
+  </style>
+</head>
+<body>
+  <!-- ===================== CABEÇALHO ===================== -->
+  <header role="banner" aria-label="Barra de navegação principal">
+    <div class="container nav">
+      <div class="brand" aria-label="Logotipo e nome da empresa">
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span>People Management <strong>LTDA</strong></span>
+      </div>
+      <nav class="menu" aria-label="Menu principal">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Quem Somos</a>
+        <a href="#servicos">Soluções</a>
+        <a href="#valor">Nossos Diferenciais</a>
+        <a href="#processo">Processo</a>
+        <a href="#contatos">Contato</a>
+        <button class="btn" id="openContact" aria-haspopup="dialog" aria-controls="modalContato">Falar com especialista</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <main id="inicio" class="hero" role="main">
+    <div class="container hero-wrap">
+      <div class="hero-panel">
+        <span class="badge"><span class="logo-dot" aria-hidden="true"></span> Intermediação de Crédito compreensível</span>
+        <h1>Financiamento empresarial em linguagem clara e custos previsíveis</h1>
+        <p class="lead">
+          Ajudamos sua empresa a captar recursos com garantias adequadas e documentação correta.
+          Tradu fazemos o “burocratês” do sistema financeiro: explicamos como funciona, quais são as taxas e o que esperar em cada etapa.
+          Você toma decisões com segurança e sem surpresas.
+        </p>
+        <div class="hero-cta">
+          <button class="btn" id="openContact2" aria-haspopup="dialog" aria-controls="modalContato">Quero um diagnóstico</button>
+          <a class="btn secondary" href="#servicos">Ver soluções</a>
+        </div>
+        <div class="stats" aria-label="Indicadores de desempenho">
+          <div class="stat"><strong>R$ 160M+</strong><span class="small">em operações acompanhadas</span></div>
+          <div class="stat"><strong>10+ anos</strong><span class="small">de experiência combinada</span></div>
+          <div class="stat"><strong>98%</strong><span class="small">aprovação em comitês</span></div>
+        </div>
+      </div>
+      <figure class="hero-photo" aria-hidden="true">
+        <div></div>
+      </figure>
+    </div>
+  </main>
+
+  <!-- ===================== SOBRE ===================== -->
+  <section id="sobre" aria-labelledby="tit-sobre">
+    <div class="container">
+      <div class="section-kicker"><span class="line"></span><span class="pill">História e Propósito</span></div>
+      <h2 id="tit-sobre">Quem somos — e por que falamos simples</h2>
+      <div class="grid-2">
+        <article class="card">
+          <p>
+            A People Management LTDA nasceu para ser a ponte entre empresas que precisam de crédito e instituições que querem emprestar com segurança.
+            Trabalhamos com <strong>Activities Related to Credit Intermediation</strong>: análise, estruturação, defesa técnica e acompanhamento.
+          </p>
+          <p>
+            Nosso compromisso é <em>clareza</em>. Explicamos termos, taxas e garantias de forma direta.
+            Se algo não fizer sentido para você, refazemos. Preferimos uma conversa honesta a um contrato que vire problema.
+          </p>
+          <p>
+            Operamos com LGPD e PLD/AML, mantendo trilhas de auditoria e governança que atendem bancos, FIDCs e plataformas de crédito.
+          </p>
+          <p>
+            Estamos na <strong>Avenida Hebe Camargo, 470</strong>. Atendemos empresas de diferentes setores, com foco em fluxo de caixa recorrente e lastro verificável.
+          </p>
+        </article>
+        <article class="card">
+          <h3>O que entregamos, em poucas linhas</h3>
+          <ul>
+            <li>Diagnóstico financeiro e preparação de dossiê bancável.</li>
+            <li>Defesa do caso em comitês, com dados e cenários realistas.</li>
+            <li>Negociação transparente de taxas, prazos e garantias.</li>
+            <li>Implantação operacional e suporte de conciliação.</li>
+            <li>Monitoramento contínuo com alertas e relatórios simples.</li>
+          </ul>
+          <div class="slogan"><strong>Transparência, processo e disciplina. Crédito que cabe no seu planejamento.</strong></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVIÇOS ===================== -->
+  <section id="servicos" aria-labelledby="tit-servicos">
+    <div class="container">
+      <div class="section-kicker"><span class="line"></span><span class="pill">Portfólio objetivo</span></div>
+      <h2 id="tit-servicos">Soluções financeiras que falam a língua do seu caixa</h2>
+      <div class="grid-3" role="list">
+        <article class="card" role="listitem">
+          <h3>Recebíveis estruturados</h3>
+          <p class="small">Validamos títulos, contratos e cessão; organizamos dados e riscos; e definimos proteções que fazem sentido para o seu negócio.</p>
+          <p>O resultado é um pacote claro para aprovação rápida — e previsibilidade de custo.</p>
+          <p>Ideal para quem tem vendas recorrentes e precisa de capital de giro escalável.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>Crédito corporativo simples</h3>
+          <p class="small">Transformamos objetivos de expansão em um plano de financiamento com prazos coerentes e garantias proporcionais.</p>
+          <p>Você vê cenários, limites e impactos antes de assinar qualquer coisa.</p>
+          <p>Indicado para CAPEX, modernização e projetos com fluxo dedicado.</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>Risco e compliance sem mistério</h3>
+          <p class="small">Implementamos políticas de PLD/AML e rotinas LGPD com linguagem acessível e responsabilidades definidas.</p>
+          <p>Relatórios enxutos mostram o que importa e quando agir.</p>
+          <p>Perfeito para quem quer crescer mantendo a casa em ordem.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DIFERENCIAIS ===================== -->
+  <section id="valor" aria-labelledby="tit-valor">
+    <div class="container">
+      <div class="section-kicker"><span class="line"></span><span class="pill">Compromissos que sustentam a entrega</span></div>
+      <h2 id="tit-valor">Três motivos para trabalhar conosco</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>CET explicado linha por linha</h3>
+          <p>Mostramos o Custo Efetivo Total com planilha aberta. Você entende o que é taxa, tarifa ou garantia. Sem asteriscos.</p>
+        </div>
+        <div class="card">
+          <h3>Propostas comparáveis</h3>
+          <p>Apresentamos opções lado a lado, com prós e contras. A decisão é sua — nossa função é dar clareza.</p>
+        </div>
+        <div class="card">
+          <h3>Acompanhamento até o fim</h3>
+          <p>Depois da liberação, seguimos monitorando covenants e prazos. Se algo sair do trilho, você recebe um alerta simples e um plano de ação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ESCOLHA-NOS (variação) ===================== -->
+  <section aria-labelledby="tit-escolha">
+    <div class="container">
+      <div class="section-kicker"><span class="line"></span><span class="pill">Decisão sem ruído</span></div>
+      <h2 id="tit-escolha">Por que nossos clientes nos indicam</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Informação útil, sem jargão</h3>
+          <p>Ensinamos a ler propostas, contratos e garantias. O que é essencial fica claro; o resto não pesa na decisão.</p>
+        </div>
+        <div class="card">
+          <h3>Remuneração transparente</h3>
+          <p>Declaramos como somos pagos e evitamos conflitos. Se houver, você fica sabendo — por escrito.</p>
+        </div>
+      </div>
+      <div class="slogan"><strong>Crédito não precisa ser complexo. Precisa ser honesto e bem executado.</strong></div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESSO ===================== -->
+  <section id="processo" aria-labelledby="tit-processo">
+    <div class="container">
+      <div class="section-kicker"><span class="line"></span><span class="pill">Linha do tempo</span></div>
+      <h2 id="tit-processo">Nosso processo em três passos</h2>
+      <div class="timeline" aria-label="Etapas de trabalho">
+        <div class="step">
+          <h3>1) Diagnóstico rápido</h3>
+          <p>Coletamos DRE, balanço e informações de vendas/recebíveis. Em até 5 dias úteis, você recebe um parecer claro: o que é possível, quando e quanto custa.</p>
+        </div>
+        <div class="step">
+          <h3>2) Estruturação e defesa</h3>
+          <p>Montamos o dossiê e defendemos o caso junto aos credores adequados. Você acompanha as interações essenciais e aprova os termos antes de avançar.</p>
+        </div>
+        <div class="step">
+          <h3>3) Liberação e acompanhamento</h3>
+          <p>Implantamos a operação, alinhamos rotinas de conciliação e entregamos relatórios mensais com indicadores simples e ações recomendadas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section aria-label="Chamada à ação">
+    <div class="container">
+      <div class="card" style="display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap">
+        <div>
+          <h3>Quer saber se sua empresa está pronta para captar?</h3>
+          <p class="small">Rodamos um pré-teste sem compromisso. Sem consulta de crédito e sem impacto em score.</p>
+        </div>
+        <div>
+          <button class="btn" id="openContact3" aria-haspopup="dialog" aria-controls="modalContato">Iniciar pré-teste</button>
+          <a class="btn secondary" href="#contatos">Ver contatos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTATOS ===================== -->
+  <section id="contatos" aria-labelledby="tit-contatos">
+    <div class="container">
+      <div class="section-kicker"><span class="line"></span><span class="pill">Canais oficiais</span></div>
+      <h2 id="tit-contatos">Fale com a People Management LTDA</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Endereço</h3>
+          <p>Avenida Hebe Camargo, 470</p>
+          <div class="chip"><span class="logo-dot"></span><span>São Paulo — SP</span></div>
+        </div>
+        <div class="card">
+          <h3>E-mail</h3>
+          <p><a href="mailto:glaicielle@peoplemanagement.pro" rel="nofollow">glaicielle@peoplemanagement.pro</a></p>
+          <p class="note">Atendimento em horário comercial. Evite enviar dados sensíveis sem criptografia.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Privacidade</h3>
+        <p class="small">Coletamos apenas o necessário para responder ao seu contato. Você pode solicitar exclusão a qualquer momento por e-mail. Nada de telefone, nada de rastreadores.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MODAL: FORMULÁRIO ===================== -->
+  <dialog class="modal" id="modalContato" aria-labelledby="tit-form" aria-modal="true" role="dialog">
+    <div class="dialog">
+      <header class="container">
+        <h3 id="tit-form">Envie sua mensagem</h3>
+        <button class="close" aria-label="Fechar" data-close>&times;</button>
+      </header>
+      <form id="formContato" class="container" novalidate>
+        <p class="note">
+          Escreva em linguagem simples. Exemplos: “preciso de capital de giro com recebíveis”, “financiamento para expansão”, “revisar taxas e garantias”.
+        </p>
+        <div class="form-grid" role="group" aria-label="Campos do formulário">
+          <div>
+            <label for="nome">Seu nome</label>
+            <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Ex.: Ana Ribeiro" required />
+          </div>
+          <div>
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="Ex.: ana@empresa.com.br" required />
+          </div>
+          <div>
+            <label for="empresa">Empresa (opcional)</label>
+            <input id="empresa" name="empresa" type="text" autocomplete="organization" placeholder="Ex.: Horizonte S/A" />
+          </div>
+          <div>
+            <label for="assunto">Assunto</label>
+            <select id="assunto" name="assunto" required>
+              <option value="">Selecione…</option>
+              <option>Recebíveis estruturados</option>
+              <option>Crédito corporativo</option>
+              <option>Risco & compliance</option>
+              <option>Outro tema</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Conte o que precisa, valores aproximados e prazos desejados."></textarea>
+          </div>
+          <!-- Honeypot anti-spam -->
+          <input type="text" name="website" id="website" aria-hidden="true" tabindex="-1" style="position:absolute; left:-9999px; opacity:0" />
+          <div class="full agree">
+            <input id="consent" type="checkbox" required />
+            <label for="consent">Autorizo o uso dos dados enviados somente para responder a esta solicitação.</label>
+          </div>
+        </div>
+        <div style="display:flex; gap:10px; margin-top:10px">
+          <button class="btn" type="submit">Enviar</button>
+          <button class="btn secondary" type="button" data-close>Cancelar</button>
+        </div>
+        <p class="note" style="margin-top:10px">
+          Não solicitamos telefone. Se necessário, combinaremos uma vídeo por e-mail.
+        </p>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- ===================== MODAL: SUCESSO ===================== -->
+  <dialog class="modal" id="modalSucesso" aria-labelledby="tit-ok" aria-modal="true" role="alertdialog">
+    <div class="dialog success">
+      <header style="position:relative">
+        <h3 id="tit-ok">Tudo certo — recebemos sua mensagem</h3>
+        <button class="close" aria-label="Fechar" data-close>&times;</button>
+      </header>
+      <p>Enviamos um e-mail de confirmação para <strong id="echoEmail">seu endereço</strong>. Responderemos em breve.</p>
+      <p class="note">Não encontrou? Confira o spam ou escreva para <a href="mailto:glaicielle@peoplemanagement.pro">glaicielle@peoplemanagement.pro</a>.</p>
+      <div style="margin-top:12px"><button class="btn" data-close>Fechar</button></div>
+    </div>
+  </dialog>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap">
+        <div class="brand"><span class="logo-dot"></span><span>People Management LTDA</span></div>
+        <div class="credits">© <span id="year"></span> People Management LTDA — Intermediação de Crédito responsável. Todos os direitos reservados.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== JS ===================== -->
+  <script>
+    // Ano dinâmico
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Navegação suave e foco acessível
+    document.querySelectorAll('a[href^="#"]').forEach(link=>{
+      link.addEventListener('click', (e)=>{
+        const id = link.getAttribute('href');
+        if(id && id.length>1){
+          const el = document.querySelector(id);
+          if(el){
+            e.preventDefault();
+            el.scrollIntoView({behavior:'smooth', block:'start'});
+            const title = el.querySelector('h1,h2');
+            if(title){ title.setAttribute('tabindex','-1'); title.focus({preventScroll:true}); }
+          }
+        }
+      });
+    });
+
+    // Modais
+    const modalContato = document.getElementById('modalContato');
+    const modalSucesso = document.getElementById('modalSucesso');
+    const openButtons = [document.getElementById('openContact'), document.getElementById('openContact2'), document.getElementById('openContact3')].filter(Boolean);
+    openButtons.forEach(btn=>btn.addEventListener('click', ()=>openModal(modalContato)));
+    document.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click', closeAllModals));
+
+    function openModal(dlg){
+      if(typeof dlg.showModal === 'function'){ dlg.showModal(); }
+      else { dlg.setAttribute('open',''); }
+      trapFocus(dlg);
+    }
+    function closeAllModals(){
+      [modalContato, modalSucesso].forEach(d=>{
+        if(d.open && typeof d.close === 'function') d.close();
+        d.removeAttribute('open');
+      });
+      document.activeElement && document.activeElement.blur();
+    }
+    [modalContato, modalSucesso].forEach(dlg=>{
+      dlg.addEventListener('cancel', (e)=>{ e.preventDefault(); closeAllModals(); });
+      dlg.addEventListener('click', (e)=>{ if(e.target === dlg){ closeAllModals(); }});
+    });
+
+    // Armadilha de foco para acessibilidade
+    function trapFocus(dlg){
+      const sel = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+      const focusables = dlg.querySelectorAll(sel);
+      if(!focusables.length) return;
+      const first = focusables[0], last = focusables[focusables.length-1];
+      dlg.addEventListener('keydown', function(e){
+        if(e.key !== 'Tab') return;
+        if(e.shiftKey && document.activeElement === first){ last.focus(); e.preventDefault(); }
+        else if(!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
+      });
+      setTimeout(()=>first.focus(), 40);
+    }
+
+    // Formulário (demonstração): valida, simula envio e abre modal de sucesso
+    const form = document.getElementById('formContato');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(document.getElementById('website').value.trim()!==""){ return; } // honeypot
+      if(!form.reportValidity()){ return; }
+
+      const email = document.getElementById('email').value.trim();
+      document.getElementById('echoEmail').textContent = email || 'seu endereço';
+      closeAllModals();
+      openModal(modalSucesso);
+      form.reset();
+    });
+
+    // Atalho de teclado: "c" abre contato
+    window.addEventListener('keydown', (e)=>{
+      if((e.key==='c' || e.key==='C') && !modalContato.open && !modalSucesso.open){
+        openModal(modalContato);
+      }
+    });
+  </script>
+</body>
+</html>
